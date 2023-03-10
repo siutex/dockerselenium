@@ -1,10 +1,7 @@
 package pageObjects;
 
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -102,10 +99,9 @@ public class NewJobPage {
         itemName.sendKeys(item);
 
         WebElement itemPrice = driver.findElement(unitPriceInput);
-        itemPrice.click();
-        itemPrice.clear();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("document.getElementById(\"unit-price\").value=\"$12.00\"");;
+        String selectAll = Keys.chord(Keys.CONTROL, "a");
+        itemPrice.sendKeys(selectAll);
+        itemPrice.sendKeys(Keys.chord("$", "1", "2",".00"));
         Assert.assertEquals(itemName.getAttribute("value"), item);
         Assert.assertEquals(itemPrice.getAttribute("value"), price);
     }

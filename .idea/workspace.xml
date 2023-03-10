@@ -4,25 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be635bce-6c85-4e28-9417-89365bfa0622" name="Changes" comment="Initial commit for Framework">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/healthcheck.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="be635bce-6c85-4e28-9417-89365bfa0622" name="Changes" comment="Add Dockerfile and clean code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/cucumberOptions/TestNGTestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cucumberOptions/TestNGTestRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/features/AddJob.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/AddJob.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObjects/DashboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObjects/DashboardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObjects/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObjects/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pageObjects/NewJobPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObjects/NewJobPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/DashboardStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/DashboardStepDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/LoginStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/LoginStepDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/NewJobStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/NewJobStepDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/GenericUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/TestBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/TestContextSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/TestContextSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/chromedriver.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/global.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/global.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,12 +127,20 @@
       <option name="project" value="LOCAL" />
       <updated>1678457626563</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add Dockerfile and clean code">
+      <created>1678469706880</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678469706880</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Initial commit for Framework" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit for Framework" />
+    <MESSAGE value="Add Dockerfile and clean code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Dockerfile and clean code" />
   </component>
 </project>
