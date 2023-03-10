@@ -1,6 +1,10 @@
 package pageObjects;
 
-import org.openqa.selenium.*;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -11,7 +15,7 @@ import java.util.List;
 public class NewJobPage {
     public WebDriver driver;
     public WebDriverWait wait;
-
+    public String title = "Add job - HCP";
     By customerEditSpan = By.cssSelector("span[title='Edit']");
     By itemLine = By.cssSelector("div[data-testid='line-item-labor']");
     By buttonSpan = By.cssSelector("button[type='button']>span");
@@ -31,11 +35,10 @@ public class NewJobPage {
     By scheduleToInput = By.cssSelector("div[data-testid='schedule-date-to']>div>input#input-date");
     By newStartDateInput = By.id("newStartDate");
     By newEndDateInput = By.id("newEndDate");
-    public String title = "Add job - HCP";
 
     public NewJobPage(WebDriver driver) {
         this.driver = driver;
-        this.wait =  new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
     public WebElement getElementFromListByText(By selector, String eleText) {
@@ -47,7 +50,8 @@ public class NewJobPage {
         }
         return null;
     }
-    public void verifyOnPage(){
+
+    public void verifyOnPage() {
         wait.until(ExpectedConditions.presenceOfElementLocated(itemLine));
         Assert.assertEquals(driver.getTitle(), title);
     }
@@ -70,7 +74,7 @@ public class NewJobPage {
         Assert.assertTrue(customerTab.isDisplayed());
     }
 
-    public void AddSchedule(){
+    public void AddSchedule() {
         WebElement scheduleFromBtn = driver.findElement(scheduleFromInput);
         scheduleFromBtn.clear();
         scheduleFromBtn.sendKeys("Wed, Mar 30 2023");
@@ -92,15 +96,16 @@ public class NewJobPage {
         Assert.assertEquals(endTime.getAttribute("value"), "12:45am");
     }
 
-    public void AddItem(String item, String price) {
+    public void AddItem(String item, String price) throws InterruptedException {
         WebElement itemName = driver.findElement(itemNameInput);
         itemName.clear();
         itemName.sendKeys(item);
 
         WebElement itemPrice = driver.findElement(unitPriceInput);
+        itemPrice.click();
+        itemPrice.clear();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("document.getElementById(\"unit-price\").value='$12.00'");;
-
+        js.executeScript("document.getElementById(\"unit-price\").value=\"$12.00\"");;
         Assert.assertEquals(itemName.getAttribute("value"), item);
         Assert.assertEquals(itemPrice.getAttribute("value"), price);
     }
@@ -108,7 +113,6 @@ public class NewJobPage {
     public void AddPrivateNote(String text) {
         WebElement privateNotesBtn = getElementFromListByText(tabButtonsSelector, "Private notes");
         privateNotesBtn.click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.presenceOfElementLocated(privateNotesTextArea));
         WebElement textArea = driver.findElement(privateNotesTextArea);
         textArea.clear();
@@ -119,16 +123,15 @@ public class NewJobPage {
     public void saveJobAndCheckFeed() {
         WebElement saveJobBtn = getElementFromListByText(buttonSpan, "SAVE JOB");
         saveJobBtn.click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.presenceOfElementLocated(activityFeedHeaderSpan));
     }
 
 
     public Boolean verifyOnSchedule() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.presenceOfElementLocated(newJobHeader));
         return driver.findElement(newJobHeader).isDisplayed();
     }
+
     public Boolean verifyNewJobIsCreated() {
         WebElement jobFeed = getElementFromListByText(jobFeedPClass, "Job created as Invoice");
         return jobFeed.isDisplayed();

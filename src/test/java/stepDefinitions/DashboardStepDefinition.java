@@ -7,7 +7,6 @@ import pageObjects.DashboardPage;
 import utils.TestContextSetup;
 
 public class DashboardStepDefinition {
-    public WebDriver driver;
 
     public DashboardPage dashboardPage;
     TestContextSetup testContextSetup;

@@ -2,7 +2,10 @@ package utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -26,10 +29,21 @@ public class TestBase {
         if (driver == null) {
             if (browser.equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\src\\test\\resources\\chromedriver.exe");
-                driver = new ChromeDriver();// driver gets the life
+                ChromeOptions options = new ChromeOptions();
+                //options.addArguments("--headless");
+                options.addArguments("--disable-notifications");
+                options.addArguments("--disable-gpu");
+                options.addArguments("--disable-extensions");;
+                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--remote-allow-origins=*");
+                DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+                options.merge(capabilities);
+                driver = new ChromeDriver(options);
             }
             if (browser.equalsIgnoreCase("firefox")) {
-                System.setProperty("webdriver.gecko.driver", "\\src\\test\\resources\\geckodriver 5");
+                System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\src\\test\\resources\\geckodriver.exe");
+                FirefoxBinary binary = new FirefoxBinary();
                 driver = new FirefoxDriver();
             }
             assert driver != null;

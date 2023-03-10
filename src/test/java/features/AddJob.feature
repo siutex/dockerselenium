@@ -1,6 +1,6 @@
 Feature: Adding new job positive
 
-  @Login
+  @AddJob
   Scenario Outline: Adding job for user <Email> and password <Password>
 
     Given User is signing into App with email: <Email> and password: <Password>

@@ -7,7 +7,6 @@ import pageObjects.NewJobPage;
 import utils.TestContextSetup;
 
 public class NewJobStepDefinition {
-    public WebDriver driver;
 
     public NewJobPage newJobPage;
     TestContextSetup testContextSetup;
@@ -17,7 +16,6 @@ public class NewJobStepDefinition {
         this.newJobPage = testContextSetup.pageObjectManager.getNewJobPage();
     }
 
-
     @Then("^Creates  customer with FirstName: (.+) , LastName: (.+)")
     public void user_add_new_cutomer(String firstName, String lastName) throws InterruptedException {
         newJobPage.verifyOnPage();
@@ -25,7 +23,7 @@ public class NewJobStepDefinition {
     }
 
     @And("^Add Item with Item Name: (.+) and Price: (.+) and schedule$")
-    public void add_item(String item, String price) {
+    public void add_item(String item, String price) throws InterruptedException {
         newJobPage.AddSchedule();
         newJobPage.AddItem(item, price);
     }

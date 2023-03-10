@@ -8,7 +8,6 @@ import pageObjects.LoginPage;
 import utils.TestContextSetup;
 
 public class LoginStepDefinition {
-    public WebDriver driver;
     public LoginPage loginPage;
 
     public DashboardPage dashboardPage;
@@ -19,7 +18,6 @@ public class LoginStepDefinition {
         this.loginPage = testContextSetup.pageObjectManager.getLoginPage();
         this.dashboardPage = testContextSetup.pageObjectManager.getDashboardPage();
     }
-
 
     @Given("^User is signing into App with email: (.+) and password: (.+)$")
     public void user_is_login(String email, String password) {
