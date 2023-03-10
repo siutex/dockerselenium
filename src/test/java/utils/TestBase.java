@@ -30,7 +30,7 @@ public class TestBase {
             if (browser.equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\src\\test\\resources\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
-                //options.addArguments("--headless");
+                options.addArguments("--headless");
                 options.addArguments("--disable-notifications");
                 options.addArguments("--disable-gpu");
                 options.addArguments("--disable-extensions");;
