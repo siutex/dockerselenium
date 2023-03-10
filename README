@@ -1,0 +1,2 @@
+Framework is running via Maven using command: mvn clean test
+Reports could be find in: test-output/ExtentReport

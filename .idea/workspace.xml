@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be635bce-6c85-4e28-9417-89365bfa0622" name="Changes" comment="Add Dockerfile and clean code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObjects/NewJobPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObjects/NewJobPage.java" afterDir="false" />
-    </list>
+    <list default="true" id="be635bce-6c85-4e28-9417-89365bfa0622" name="Changes" comment="Headless" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,13 +131,29 @@
       <option name="project" value="LOCAL" />
       <updated>1678469706880</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fix js issue">
+      <created>1678470329635</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678470329635</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Headless">
+      <created>1678470404519</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678470404519</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Initial commit for Framework" />
     <MESSAGE value="Add Dockerfile and clean code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Dockerfile and clean code" />
+    <MESSAGE value="Fix js issue" />
+    <MESSAGE value="Headless" />
+    <option name="LAST_COMMIT_MESSAGE" value="Headless" />
   </component>
 </project>
