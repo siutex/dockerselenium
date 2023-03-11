@@ -1,0 +1,24 @@
+version: "3"
+services:
+  hub:
+    image: selenium/hub:4.8.1
+    ports:
+      - "4444:4444"
+  chrome:
+    image: selenium/node-chrome:4.8.1
+    depends_on:
+      - hub
+    environment:
+      - SE_EVENT_BUS_HOST=hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+  challenge:
+    image: siutex/selenium-docker-cucumber
+    depends_on:
+      - chrome
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=chrome
+      - CUCUMBER_OPTIONS=src/test/java/features
+    volumes:
+      - ./output:/usr/share/cucumber/test-output/

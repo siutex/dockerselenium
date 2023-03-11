@@ -16,4 +16,4 @@ java -cp MavenCucumber-1.0-SNAPSHOT.jar:MavenCucumber-1.0-SNAPSHOT-tests.jar:lib
     -DHUB_HOST=$HUB_HOST \
     -DBROWSER=$BROWSER \
     -Dcucumber.options="$CUCUMBER_OPTIONS" \
-    org.testng.TestNG -testclass com.runner.TestNGTestRunner
+    org.testng.TestNG -testclass cucumberOptions.TestNGTestRunner
