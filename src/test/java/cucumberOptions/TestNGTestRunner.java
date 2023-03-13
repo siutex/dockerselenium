@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = "src/test/java/features",
+        features = {"src/test/resources/features"},
         glue = {"stepDefinitions"},
         monochrome = true,
         tags = "@AddJob",
@@ -19,5 +19,4 @@ public class TestNGTestRunner extends AbstractTestNGCucumberTests {
     public Object[][] scenarios() {
         return super.scenarios();
     }
-
 }

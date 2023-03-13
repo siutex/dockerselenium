@@ -1,15 +1,14 @@
-FROM openjdk:8u191-jre-alpine3.8
+FROM openjdk:19-jdk-alpine3.16
 
 RUN apk add curl jq
 
 # Workspace
 WORKDIR /usr/share/cucumber
 
-# ADD .jar under target from host
-# into this image
-ADD target/MavenCucumber-1.0-SNAPSHOT.jar 			MavenCucumber-1.0-SNAPSHOT.jar
-ADD target/MavenCucumber-1.0-SNAPSHOT-tests.jar 	MavenCucumber-1.0-SNAPSHOT-tests.jar
-ADD target/libs							libs
+
+ADD target/selenium-docker-cucumber.jar         selenium-docker-cucumber.jar
+ADD target/selenium-docker-cucumber-tests.jar   selenium-docker-cucumber-tests.jar
+ADD target/libs							        libs
 
 
 # ADD health check script

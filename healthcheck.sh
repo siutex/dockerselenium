@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-# Environment Variables
-# HUB_HOST
-# BROWSER
-# MODULE
 
 echo "Checking if hub is ready - $HUB_HOST"
 
@@ -12,8 +8,7 @@ do
 done
 
 # start the java command
-java -cp MavenCucumber-1.0-SNAPSHOT.jar:MavenCucumber-1.0-SNAPSHOT-tests.jar:libs/* \
+java -cp selenium-docker.jar:selenium-docker-tests.jar:libs/* \
+    org.testng.TestNG -testclass cucumberOptions.TestNGTestRunner \
     -DHUB_HOST=$HUB_HOST \
-    -DBROWSER=$BROWSER \
-    -Dcucumber.options="$CUCUMBER_OPTIONS" \
-    org.testng.TestNG -testclass cucumberOptions.TestNGTestRunner
+    -DBROWSER=$BROWSER

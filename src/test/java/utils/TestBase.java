@@ -3,15 +3,13 @@ package utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
+import java.io.InputStream;
 import java.net.URL;
 import java.time.Duration;
 import java.util.Properties;
@@ -34,7 +32,7 @@ public class TestBase {
             if (browser.equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\src\\test\\resources\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--headless");
+                //options.addArguments("--headless");
                 options.addArguments("--disable-notifications");
                 options.addArguments("--disable-gpu");
                 options.addArguments("--disable-extensions");
@@ -47,7 +45,6 @@ public class TestBase {
             }
             if (browser.equalsIgnoreCase("firefox")) {
                 System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\src\\test\\resources\\geckodriver.exe");
-                FirefoxBinary binary = new FirefoxBinary();
                 driver = new FirefoxDriver();
             }
             assert driver != null;
@@ -58,9 +55,10 @@ public class TestBase {
         return driver;
     }
 
-    public RemoteWebDriver getRemoteWebDriver() throws MalformedURLException {
+    public RemoteWebDriver getRemoteWebDriver() throws IOException {
         String host = "localhost";
         DesiredCapabilities capabilities;
+
         if (System.getProperty("BROWSER") != null && System.getProperty("BROWSER").equalsIgnoreCase("firefox")) {
 
             capabilities = new DesiredCapabilities();
@@ -80,9 +78,17 @@ public class TestBase {
         if (System.getProperty("HUB_HOST") != null) {
             host = System.getProperty("HUB_HOST");
         }
-
         String completeUrl = "http://" + host + ":4444/wd/hub";
-        return remoteWebDriver = new RemoteWebDriver(new URL(completeUrl), capabilities);
+        Properties properties = new Properties();
+        String file = "global.properties";
+        InputStream inputstream = getClass().getClassLoader().getResourceAsStream(file);
+        properties.load(inputstream);
+        String url = properties.getProperty("QAUrl");
+        remoteWebDriver = new RemoteWebDriver(new URL(completeUrl), capabilities);
+        remoteWebDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        remoteWebDriver.manage().window().maximize();
+        remoteWebDriver.get(url);
+        return remoteWebDriver;
     }
 }
 
