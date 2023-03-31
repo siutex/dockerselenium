@@ -7,5 +7,4 @@ do
 	sleep 1
 done
 
-# start the java command
-java -cp .:classes:lib/*
+mvn test
