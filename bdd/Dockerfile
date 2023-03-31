@@ -9,16 +9,14 @@ COPY --from=builder /usr/share/cucumber/dockerselenium ./
 # build the app and download dependencies only when these are new (thanks to the cache)
 RUN --mount=type=cache,target=/root/.m2  mvn clean package -Dmaven.test.skip=true
 # split the built app into multiple layers to improve layer rebuild
-RUN mkdir -p target/docker-packaging && cd target/docker-packaging && jar -xf ../selenium-docker-cucumber*.jar
-
-########JRE run stage########
-FROM maven_build
-WORKDIR /usr/share/cucumber/dockerselenium
-
-#copy built app layer by layer
+RUN mkdir -p target/docker-packaging && cd target/docker-packaging && jar -xf ../selenium-docker-cucumber.jar && jar -xf ../selenium-docker-cucumber-tests.jar
+FROM openjdk:11.0-jre
+WORKDIR /app
+COPY --from=maven_build /usr/share/cucumber/dockerselenium/target/docker-packaging ./
 ARG DOCKER_PACKAGING_DIR=/usr/share/cucumber/dockerselenium/target/docker-packaging
-#COPY --from=maven_build ${DOCKER_PACKAGING_DIR}/BOOT-INF/lib /usr/share/cucumber/dockerselenium/lib
-#COPY --from=maven_build ${DOCKER_PACKAGING_DIR}/BOOT-INF/classes /usr/share/cucumber/dockerselenium/classes
-#COPY --from=maven_build ${DOCKER_PACKAGING_DIR}/META-INF /usr/share/cucumber/dockerselenium/META-INF
+#COPY --from=maven_build ${DOCKER_PACKAGING_DIR}/lib /app/lib
+#COPY --from=maven_build ${DOCKER_PACKAGING_DIR}/classes /app/classes
+#COPY --from=maven_build ${DOCKER_PACKAGING_DIR}/test-classes /app/classes
+COPY --from=maven_build ${DOCKER_PACKAGING_DIR}/META-INF /app/META-INF
 
 ENTRYPOINT sh healthcheck.sh

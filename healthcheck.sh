@@ -8,4 +8,4 @@ do
 done
 
 # start the java command
-mvn -f pom.xml clean install
+java -cp .:classes:lib/*
