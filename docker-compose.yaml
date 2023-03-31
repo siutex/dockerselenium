@@ -16,5 +16,10 @@ services:
   bdd:
     container_name: bdd
     build: ./bdd
+    depends_on:
+      - chrome
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=chrome
     volumes:
       - ./output:/usr/share/cucumber/test-output/

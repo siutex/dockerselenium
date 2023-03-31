@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efe684e2-a725-4ffa-a654-70ec901dabfe" name="Changes" comment="Docker runnin from IDE">
-      <change afterPath="$PROJECT_DIR$/bdd/Dockerfile" afterDir="false" />
+    <list default="true" id="efe684e2-a725-4ffa-a654-70ec901dabfe" name="Changes" comment="For github">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bdd/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/bdd/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healthcheck.sh" beforeDir="false" afterPath="$PROJECT_DIR$/healthcheck.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +69,18 @@
       <option name="presentableId" value="Default" />
       <updated>1678699981804</updated>
     </task>
+    <task id="LOCAL-00001" summary="For github">
+      <created>1680246028713</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680246028713</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="For github" />
+    <option name="LAST_COMMIT_MESSAGE" value="For github" />
   </component>
 </project>

@@ -8,7 +8,4 @@ do
 done
 
 # start the java command
-java -cp selenium-docker.jar:selenium-docker-tests.jar:libs/* \
-    org.testng.TestNG -testclass cucumberOptions.TestNGTestRunner \
-    -DHUB_HOST=$HUB_HOST \
-    -DBROWSER=$BROWSER
+mvn -f pom.xml clean install
